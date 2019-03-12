@@ -14,7 +14,9 @@ public class TST<V> {
     }
 
     public V get(String key){
-
+        Node<V> node = get(root, key, 0);
+        if(node == null) return null;
+        return node.value;
     }
 
     private Node<V> put(Node<V> node, String key, V value, int indexOfKey){
@@ -31,12 +33,12 @@ public class TST<V> {
         return node;
     }
 
-    private V get(Node<V> node, String key, int indexOfKey){
+    private Node<V> get(Node<V> node, String key, int indexOfKey){
         if(node == null)                            return null;
         char ch = key.charAt(indexOfKey);
         if(ch > node.key)                           return get(node.right, key, indexOfKey);
         else if(ch < node.key)                      return get(node.left, key, indexOfKey);
         else if(indexOfKey < key.length() - 1)      return get(node.mid, key, indexOfKey);
-        else                                        return node.value;
+        else                                        return node;
     }
 }
