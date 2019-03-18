@@ -25,9 +25,9 @@ public class TST<V> {
             node = new Node<>();
             node.key = c;
         }
-        if(c < node.key) node.left = put(node.left, key, value, indexOfKey);
-        else if(c > node.key) node.right = put(node.right, key, value, indexOfKey);
-        else if(indexOfKey < key.length() - 1) node.mid = put(node.mid, key, value, indexOfKey+ 1);
+        if(c < node.key)                        node.left = put(node.left, key, value, indexOfKey);
+        else if(c > node.key)                   node.right = put(node.right, key, value, indexOfKey);
+        else if(indexOfKey < key.length() - 1)  node.mid = put(node.mid, key, value, indexOfKey+ 1);
         else node.value = value;
 
         return node;
