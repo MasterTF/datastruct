@@ -13,10 +13,10 @@ public class TST<V> {
         root = put(root, key, value, 0);
     }
 
-    public V get(String key){
+    public Node<V> get(String key){
         Node<V> node = get(root, key, 0);
         if(node == null) return null;
-        return node.value;
+        return node;
     }
 
     private Node<V> put(Node<V> node, String key, V value, int indexOfKey){
@@ -38,7 +38,7 @@ public class TST<V> {
         char ch = key.charAt(indexOfKey);
         if(ch > node.key)                           return get(node.right, key, indexOfKey);
         else if(ch < node.key)                      return get(node.left, key, indexOfKey);
-        else if(indexOfKey < key.length() - 1)      return get(node.mid, key, indexOfKey);
+        else if(indexOfKey < key.length() - 1)      return get(node.mid, key, indexOfKey + 1);
         else                                        return node;
     }
 }
