@@ -16,6 +16,7 @@ public class Trie {
     /** Initialize your data structure here. */
     public Trie(int r) {
         this.r = r;
+        root = new Node();
     }
 
     /** Inserts a word into the trie. */
