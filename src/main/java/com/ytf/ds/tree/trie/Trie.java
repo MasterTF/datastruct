@@ -41,6 +41,19 @@ public class Trie {
         return list;
     }
 
+    public String longestPrefixOf(String query){
+        int length = search(root, query, 0, 0);
+        return query.substring(0, length);
+    }
+
+    private int search(Node node, String query, int indexOfKey, int length){
+        if(node == null)                    return length;
+        if(node.value)                      length = indexOfKey;
+        if(indexOfKey == query.length())    return length;
+        char ch = query.charAt(indexOfKey);
+        return  search(node.next[ch - 'a'], query, indexOfKey + 1, length);
+    }
+
     private Node put(Node node, String key, Boolean value, int indexOfKey){
         if(node == null) node = new Node();
         if(indexOfKey == key.length()){
