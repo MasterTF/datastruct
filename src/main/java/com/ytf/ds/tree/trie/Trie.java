@@ -46,32 +46,32 @@ public class Trie {
         return query.substring(0, length);
     }
 
-    private int search(Node node, String query, int indexOfKey, int length){
+    private int search(Node node, String query, int deepOfTrie, int length){
         if(node == null)                    return length;
-        if(node.value)                      length = indexOfKey;
-        if(indexOfKey == query.length())    return length;
-        char ch = query.charAt(indexOfKey);
-        return  search(node.next[ch - 'a'], query, indexOfKey + 1, length);
+        if(node.value)                      length = deepOfTrie;
+        if(deepOfTrie == query.length())    return length;
+        char ch = query.charAt(deepOfTrie);
+        return  search(node.next[ch - 'a'], query, deepOfTrie + 1, length);
     }
 
-    private Node put(Node node, String key, Boolean value, int indexOfKey){
+    private Node put(Node node, String key, Boolean value, int deepOfTrie){
         if(node == null) node = new Node();
-        if(indexOfKey == key.length()){
+        if(deepOfTrie == key.length()){
             node.value = value;
             return node;
         }
 
-        char ch = key.charAt(indexOfKey);
-        node.next[ch - 'a'] = put(node.next[ch - 'a'], key, value, indexOfKey + 1);
+        char ch = key.charAt(deepOfTrie);
+        node.next[ch - 'a'] = put(node.next[ch - 'a'], key, value, deepOfTrie + 1);
         return node;
 
     }
 
-    private Node get(Node node, String key, int indexOfKey){
+    private Node get(Node node, String key, int deepOfTrie){
         if(node == null) return null;
-        if(indexOfKey == key.length()) return node;
-        char ch = key.charAt(indexOfKey);
-        return get(node.next[ch - 'a'], key, indexOfKey + 1);
+        if(deepOfTrie == key.length()) return node;
+        char ch = key.charAt(deepOfTrie);
+        return get(node.next[ch - 'a'], key, deepOfTrie + 1);
     }
 
     private void collect(Node node, String prefix, List<String> list){
