@@ -23,16 +23,16 @@ public class TrieTest {
         Assert.assertTrue(result);
 
         result = trie.search("app");     // returns false
-        Assert.assertTrue(!result);
+        Assert.assertFalse(result);
 
         trie.insert("applel");
         trie.insert("appeal");
 
         List<String> list = trie.startsWith("apple"); // size == 2
-        Assert.assertTrue(list.size() == 2);
+        Assert.assertEquals(2, list.size());
 
         list = trie.startsWith("app");
-        Assert.assertTrue(list.size() == 3);
+        Assert.assertEquals(3, list.size());
 
 
         trie.insert("app");
