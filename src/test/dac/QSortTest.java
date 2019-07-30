@@ -31,4 +31,17 @@ public class QSortTest {
         Assert.assertEquals(0, b[3].compareTo(4));
         Assert.assertEquals(0, b[4].compareTo(5));
     }
+
+
+    @Test
+    public void topK(){
+        Comparable<Integer>[] a = new Comparable[]{1, 10, 7, 9, 8};
+
+        Comparable result = QSort.topK(a, 3);
+        Assert.assertEquals(9, result);
+
+        Comparable<Integer>[] b = new Comparable[]{1, 2, 3, 4, 5};
+        result = QSort.topK(b, 2);
+        Assert.assertEquals(3, result);
+    }
 }
