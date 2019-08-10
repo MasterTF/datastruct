@@ -6,7 +6,7 @@ package com.ytf.ds.uf;
  * @Author: yutianfang
  * @Date: 2019-08-05
  **/
-public class WeightedQuickUnionUF {
+public class WeightedQuickUnionUF implements UnionFind{
     private int[] parent; // parent[i]  = parent of i
     private int[] size;   // size[i]    = number of sites in subtree rooted at i
     private int   count;  // number of components
