@@ -1,11 +1,11 @@
 package com.ytf.ds.uf;
 
 public interface UnionFind {
-    void union(int i, int j);
+    void union(int p, int q);
 
-    int find(int i);
+    int find(int p);
 
-    boolean connected(int i, int j);
+    boolean connected(int p, int q);
 
     int count();
 }

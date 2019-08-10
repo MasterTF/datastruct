@@ -21,9 +21,9 @@ public class WeightedQuickUnionUF implements UnionFind{
         }
     }
 
-    public int find(int i){
-        while(i != parent[i]) i = parent[i];
-        return i;
+    public int find(int p){
+        while(p != parent[p]) p = parent[p];
+        return p;
     }
 
     public void union(int p, int q){
