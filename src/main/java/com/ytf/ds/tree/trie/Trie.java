@@ -1,7 +1,6 @@
 package com.ytf.ds.tree.trie;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -78,7 +77,7 @@ public class Trie {
         if(node == null) return;
         if(node.value) list.add(prefix);
         for(char ch = 0; ch < 26; ch++){
-            collect(node.next[ch], prefix + Character.toString((char)(ch +'a')), list);
+            collect(node.next[ch], prefix + (char) (ch + 'a'), list);
         }
     }
 
