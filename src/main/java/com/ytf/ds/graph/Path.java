@@ -63,4 +63,18 @@ public class Path {
 
         return path;
     }
+
+    public Iterable<Integer> topologicalSort(Graph g){
+        Stack<Integer> reversePost = new Stack<>();
+        for(int v = 0; v < g.v(); v++)  if(!marked[v]) topoDfs(g, v, reversePost);
+        return reversePost;
+    }
+
+    private void topoDfs(Graph g, int v, Stack<Integer> reversePost){
+        marked[v] = true;
+        for(int w : g.adj(v))
+            if(!marked[w])  dfs(g, w);
+        reversePost.add(v);
+    }
+
 }
