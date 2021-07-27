@@ -44,10 +44,10 @@ public class HeapSort {
     private void sink(int[] array, int k){
         while(2*k <= size){
             int j = 2*k;
-            // 选较小的
-            if(j < size && array[j] > array[j + 1]) j++;
+            // 选较大的
+            if(j < size && array[j] < array[j + 1]) j++;
 
-            if(array[k] <= array[j]) break;
+            if(array[k] >= array[j]) break;
 
             swap(array, k ,j);
 
